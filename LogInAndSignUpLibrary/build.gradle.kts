@@ -7,16 +7,16 @@ plugins {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            // Specify the component
-            from(components["release"])
-
-            // Add metadata
             groupId = "com.example"
             artifactId = "loginandsignuplibrary"
             version = "1.0.0"
+
+            // Specify the AAR file
+            artifact("$buildDir/outputs/aar/loginlibrary-release.aar")
         }
     }
 }
+
 
 android {
     namespace = "com.example.loginandsignuplibrary"
